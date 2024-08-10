@@ -1,1 +1,24 @@
 /* Ini css */
+
+/* Css Variable */
+:root {
+    /* Coloring */
+    --primary-color: #31393C;
+    --secondary-color: #4E8098;
+    --essentials-color-1: #F21B3F;
+    --essentials-color-2: #08BDBD;
+}
+
+/* Font Text */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Reset CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling */
+
