@@ -7,6 +7,8 @@
     --secondary-color: #1b2023;
     --tertiary-color: #232e34;
     --button-color: #445870;
+    --font-title: #17a4c7;
+    --font-text: rgba(255, 255, 255, 0.8);
 }
 
 /* Font Text */
@@ -64,12 +66,16 @@ aside.article-wrap {
     padding: 30px 50px;
 }
 
-aside article {
-    color: rgba(255, 255, 255, 0.8);
+aside article p {
+    color: var(--font-text);
+}
+
+aside article li {
+    color: var(--font-text);
 }
 
 aside article h2 {
-    color: #17a4c7;
+    color: var(--font-title);
 }
 
 /* Font Styling + Article Margin */
