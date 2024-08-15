@@ -150,7 +150,7 @@ main {
     line-height: 0rem;
 }
 
-.aside-right span {
+.aside-right span.copyright {
     text-align: center;
     margin-top: 30px;
     color: rgba(255, 255, 255, 0.8);
@@ -166,7 +166,7 @@ main {
     flex-direction: column;
 }
 
-.aside-left span {
+.aside-left span.copyright {
     display: flex;
     align-items: center;
     justify-content: center;
