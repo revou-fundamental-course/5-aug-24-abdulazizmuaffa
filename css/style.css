@@ -1,8 +1,5 @@
-/* Ini css */
-
 /* Css Variable */
 :root {
-    /* Coloring */
     --primary-color: #17181a;
     --secondary-color: #1b2023;
     --tertiary-color: #232e34;
@@ -11,20 +8,21 @@
     --font-text: rgba(255, 255, 255, 0.8);
 }
 
-/* Font Text */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 /* Reset CSS */
 
 * {
+	box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 ol {
     list-style-position: inside;
 }
+
+
 
 /* Styling */
 
@@ -34,99 +32,159 @@ body {
     color: #fff;
 }
 
+
+
 /* Container */
 
 .container {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     margin: 20px;
-    height: calc(100vh - 40px);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 5px 1px #000;
 }
 
-/* Content */
+
+
+/* Main */
 
 main {
     display: grid;
     grid-template-columns: 1fr 3fr;
     background-color: var(--secondary-color);
+    height: 100%;
+    height: calc(100vh - 40px);
 }
 
-/* Aside Wrap */
+/* Aside Right - BMI Result Container */
 
-aside.form-wrap {
-    display: flex;
-    background-color: var(--tertiary-color);
-    padding: 30px 0px;
-    justify-content: center;
+.bmi-result {
+    display: none;
 }
 
-aside.article-wrap {
-    padding: 30px 50px;
-}
-
-aside article p {
-    color: var(--font-text);
-}
-
-aside article li {
-    color: var(--font-text);
-}
-
-aside article h2 {
+.bmi-result h2 {
     color: var(--font-title);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-/* Font Styling + Article Margin */
+/* Aside Right - BMI Result Box */
 
-article {
+.bmi-result .result-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--tertiary-color);
+    padding: 15px;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 1.8rem;
+.bmi-result .result-box h3 {
+    color: var(--font-title);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+.bmi-result .result-box p.result {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
-h3 {
-    font-size: 0.800rem;
+.bmi-result .result-box p.category, p.category-desc {
+    color: var(--font-text);
+    font-size: 1rem;
 }
 
-p {
-    margin-bottom: 15px;
-}
+/* Aside Right - BMI Result Article */
 
-li {
-    margin-bottom: 5px;
-}
-
-p, li {
+.bmi-result article p {
+    color: var(--font-text);
     font-size: 0.950rem;
     line-height: 1rem;
 }
 
-ol {
-    margin-bottom: 10px;
+.bmi-result article p {
+    margin-bottom: 15px;
 }
 
-sup {
+
+
+/* Aside Right - Bmi Article */
+
+.aside-right {
+    margin: 25px;
+}
+
+.aside-right .bmi-article p {
+    color: var(--font-text);
+    font-size: 0.950rem;
+    line-height: 1rem;
+}
+
+.aside-right .bmi-article li {
+    color: var(--font-text);
+}
+
+.aside-right .bmi-article h2 {
+    color: var(--font-title);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.aside-right .bmi-article {
+    margin-bottom: 25px;
+}
+
+.aside-right .bmi-article p {
+    margin-bottom: 15px;
+}
+
+.aside-right .bmi-article  li {
+    margin-bottom: 5px;
+}
+
+.aside-right .bmi-article sup {
     line-height: 0rem;
 }
 
-/* Form */
+.aside-right span {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    display: none;
+}
+
+/* Aside Left */
+
+.aside-left {
+    display: flex;
+    background-color: var(--tertiary-color);
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.aside-left span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 13px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Aside Left - Form */
 
 form {
     display: flex;
     flex-direction: column;
+    margin: 25px;
 }
 
 form h2 {
-    font-size: 1.2rem;
+    color: var(--font-title);
+    font-size: 1.4rem;
     margin-bottom: 15px;
 }
 
@@ -146,7 +204,6 @@ form button {
 
 .btn-1 {
     background-color: var(--button-color);
-
 }
 
 .btn-2 {
@@ -154,44 +211,45 @@ form button {
     color: #fff;
 }
 
-/* Jenis Kelamin */
-.jenis-kelamin {
+/* Aside Left - Jenis Kelamin */
+
+.gender {
     display: flex;
-    gap: 20px;
     margin-bottom: 20px;
     font-size: .890rem;
+    gap: 15px;
 }
 
-.jenis-kelamin input, label {
+.gender input, label {
     cursor: pointer;
 }
 
-.jenis-kelamin input {
+.gender input {
     display: none;
 }
 
-.jenis-kelamin input[type="radio"]:checked + label.cowok {
+.gender input[type="radio"]:checked + label.cowok {
     color: #19d1ff;
     transition: 0.3s;
 }
 
-.jenis-kelamin input[type="radio"]:checked + label.cewek {
+.gender input[type="radio"]:checked + label.cewek {
     color: #ff75f1;
     transition: 0.3s;
 }
 
-.jenis-kelamin label {
+.gender label {
     display: flex;
     text-align: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
-.jenis-kelamin label i {
-    font-size: 0.950rem;
+.gender label i {
+    font-size: 0.850rem;
 }
 
-/* Input Box */
+/* Aside Left - Input Box */
 
 .input-box {
     position: relative;
@@ -213,7 +271,7 @@ form button {
     z-index: 999;
 }
 
-.input-box span {
+.input-box span.input-placeholder {
     position: absolute;
     left: 0;
     top: 5px;
@@ -223,8 +281,8 @@ form button {
     transition: 0.3s;
 }
 
-.input-box input:valid ~ span,
-.input-box input:focus ~ span {
+.input-box input:valid ~ span.input-placeholder,
+.input-box input:focus ~ span.input-placeholder {
     color: #19d1ff;
     transform: translateY(-15px);
     font-size: .750rem;
@@ -239,23 +297,37 @@ form button {
 /* Responsive */
 
 @media screen and (max-width: 768px) {
-    
-    .container {
-        height: max-content;
-    }
 
     main {
         grid-template-columns: 1.5fr 2fr;
     }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 460px) {
 
     .container {
-        height: max-content;
+        margin: 10px;
+        overflow: visible;
     }
 
     main {
         grid-template-columns: 1fr;
+        height: max-content;
+    }
+
+    .aside-left span.copyright {
+        display: none;
+    }
+
+    form {
+        margin: 20px;
+    }
+
+    .aside-right {
+        margin: 20px;
+    }
+
+    .aside-right span.copyright {
+        display: block;
     }
 }
