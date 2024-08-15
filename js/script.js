@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const bmiResult = document.querySelector('.bmi-result');
     const bmiArticle = document.querySelector('.bmi-article');
     const radioButtons = document.querySelectorAll('input[name="gender"]');
+    const bmiResultText = document.querySelector('.result');
+    const bmiResultCategory = document.querySelector('.category');
+
 
     // Memeriksa apakah semua input terisi dan jenis kelamin telah dipilih. Jika semua kondisi terpenuhi, tombol submit diaktifkan. Jika tidak, tombol submit dinonaktifkan.
     const updateSubmitButtonStatus = () => {
@@ -13,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const genderSelected = Array.from(radioButtons).some(radio => radio.checked);
         btnSubmit.ariaDisabled = !(allFilled && genderSelected);
     };
+    
 
     // Ketika tombol reset diklik, semua input dihapus, tombol submit dinonaktifkan, hasil BMI disembunyikan, dan artikel BMI ditampilkan kembali. Pilihan radio button juga dihapus.
     btnReset.addEventListener('click', () => {
@@ -25,24 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
         radioButtons.forEach(radio => radio.checked = false); // Hapus pilihan radio button
         updateSubmitButtonStatus(); // Perbarui status tombol submit setelah reset
     });
+    
 
     // Untuk setiap elemen input, event listener ditambahkan untuk memeriksa perubahan nilai (input) dan mencegah input non-numerik (keypress).
     inputFields.forEach(input => {
-        input.addEventListener('keypress', (e) => {
-            if (!/[\d]/.test(e.key)) {
-                e.preventDefault();
-            }
-        });
+      input.addEventListener('keypress', (e) => {
+        // Cek jika karakter yang ditekan bukan angka
+        if (!/[\d]/.test(e.key)) {
+          e.preventDefault();
+        }
+      });
+    
+      input.addEventListener('input', (e) => {
+        // Hapus semua karakter yang bukan angka
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+      });
     });
+    
 
     // Menambahkan event listener pada setiap radio button untuk memeriksa perubahan pilihan dan memperbarui status tombol submit.
     radioButtons.forEach(radio => {
         radio.addEventListener('change', updateSubmitButtonStatus);
     });
-
-    // Inisialisasi Elemen untuk Menampilkan Hasil
-    const bmiResultText = document.querySelector('.result');
-    const bmiResultCategory = document.querySelector('.category');
+    
 
     // Event listener untuk tombol submit
     btnSubmit.addEventListener('click', (event) => {
