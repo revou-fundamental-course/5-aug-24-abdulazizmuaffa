@@ -1,3 +1,5 @@
+// Sebagian besar script ini menggunakan chatgpt
+
 document.addEventListener('DOMContentLoaded', () => {
     // Inisialiasasi elemen
     const btnSubmit = document.getElementById('submit');
